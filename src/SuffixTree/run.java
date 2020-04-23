@@ -5,7 +5,6 @@
  */
 package SuffixTree;
 
-import FileReader.FileUtility;
 
 import java.io.IOException;
 import javafx.scene.layout.*;
@@ -21,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import utilities.FileUtility;
 
 public class run extends Application {
 
@@ -28,8 +28,8 @@ public class run extends Application {
     public void start(Stage stage) throws IOException {
 
         FileUtility fu = new FileUtility();
-        String[] file = fu.toStringArray("D:\\Code\\PBA\\2.Semester\\Algo\\shakespeare_tries\\SearchingShakespeare\\src\\shakespeare.txt", "[^a-zA-Z0-9]");
-        Suffix_tree sfn = new Suffix_tree();
+        String[] file = fu.toStringArray("/Users/sofie/Desktop/Software Development/Algoritmer og datastrukturer/SearchingShakespeare/src/shakespeare.txt", "[^a-zA-Z0-9]");
+        SuffixTree.Suffix_tree sfn = new SuffixTree.Suffix_tree();
         for (String string : file) {
             sfn.add(string);
         }
