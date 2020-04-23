@@ -28,7 +28,7 @@ public class run extends Application {
     public void start(Stage stage) throws IOException {
 
         FileUtility fu = new FileUtility();
-        String[] file = fu.toStringArray("/Users/sofie/Desktop/Software Development/Algoritmer og datastrukturer/SearchingShakespeare/src/shakespeare.txt", "[^a-zA-Z0-9]");
+        String[] file = fu.toStringArray("src/shakespeare.txt", "[^a-zA-Z0-9]");
         SuffixTree.Suffix_tree sfn = new SuffixTree.Suffix_tree();
         for (String string : file) {
             sfn.add(string);
