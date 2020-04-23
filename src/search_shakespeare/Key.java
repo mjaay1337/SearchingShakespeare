@@ -1,9 +1,6 @@
 package search_shakespeare;
 
-/**
- *
- * @param <T>
- */
+
 public interface Key<T> {
 
     boolean includes(T other);

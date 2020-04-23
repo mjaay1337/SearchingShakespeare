@@ -18,12 +18,8 @@ import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Alexander W. Hørsted-Andersen <awha86@gmail.com>
- * https://www.tutorialspoint.com/javafx/javafx_text.htm
- */
-public class TextExample extends Application {
+
+public class ShakespeareFX extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -50,7 +46,7 @@ public class TextExample extends Application {
         // action event 
         EventHandler<ActionEvent> event = (ActionEvent e) -> {
 
-            Trie toBeOrNot = test.trie.locate(new ShakespeareSuffixKey(search_input.getText()));
+            Node toBeOrNot = test.node.locate(new ShakespeareSuffixKey(search_input.getText()));
 
             Iterator iter = toBeOrNot.iterator();
             Set<String> set = new HashSet<>();
@@ -84,7 +80,7 @@ public class TextExample extends Application {
     public void recursiveMethod(Iterator iter, Set set) {
         Object obj = iter.next();
         if (obj.getClass().getCanonicalName().equals("search_shakespeare.ArrayTrie")) {
-            ArrayTrie at = (ArrayTrie) obj;
+            ArrayNode at = (ArrayNode) obj;
             recursiveMethod(at.iterator(), set);
         } else {
 //            System.out.println(obj.toString());

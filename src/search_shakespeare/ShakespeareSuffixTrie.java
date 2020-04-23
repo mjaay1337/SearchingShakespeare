@@ -7,22 +7,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import utilities.FileUtility;
 
-/**
- *
- * @author stanislavnovitski
- */
+
 public class ShakespeareSuffixTrie implements Iterable<Pair<Key, Integer>> {
 
     public ShakespeareSuffixTrie() {
     }
 
-    Trie trie = null;
+    Node node = null;
 
     public void add(ShakespeareSuffixKey key) {
-        if (trie == null) {
-            trie = new KeyTrie(key, key.getPosition());
+        if (node == null) {
+            node = new KeyNode(key, key.getPosition());
         } else {
-            trie = trie.add(key, key.getPosition());
+            node = node.add(key, key.getPosition());
         }
     }
 
@@ -50,14 +47,14 @@ public class ShakespeareSuffixTrie implements Iterable<Pair<Key, Integer>> {
 
     @Override
     public Iterator<Pair<Key, Integer>> iterator() {
-        return this.trie.iterator();
+        return this.node.iterator();
     }
 
     public void tryShakespeareSuffixTrie() {
         try {
             this.load("src/shakespeare_project/data.txt");
 
-            Trie toBeOrNot = this.trie.locate(new ShakespeareSuffixKey("to be or no"));
+            Node toBeOrNot = this.node.locate(new ShakespeareSuffixKey("to be or no"));
 
             Iterator iter = toBeOrNot.iterator();
             ArrayList list = new ArrayList();

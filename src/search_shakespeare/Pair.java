@@ -1,9 +1,6 @@
 package search_shakespeare;
 
-/**
- *
- * @author stanislavnovitski
- */
+
 public class Pair<K, V> {
 
     K first;

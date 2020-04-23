@@ -1,9 +1,6 @@
 package search_shakespeare;
 
-/**
- *
- * @author stanislavnovitski
- */
+
 public class ShakespeareSuffixKey implements Key<ShakespeareSuffixKey> {
 
     private final int max = 'z' - 'a' + 3;

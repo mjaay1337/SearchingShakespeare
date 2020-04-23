@@ -3,28 +3,24 @@ package search_shakespeare;
 import java.util.Iterator;
 import utilities.ArrayIterator;
 
-/**
- *
- * @author stanislavnovitski
- * @param <T>
- */
-public class KeyTrie<T> extends Trie<T> {
+
+public class KeyNode<T> extends Node<T> {
 
     private Key key;
     private T value = null;
 
-    public KeyTrie(Key key, T action) {
+    public KeyNode(Key key, T action) {
         this.key = key;
         this.value = action;
     }
 
     @Override
-    Trie<T> add(Key key, T action) {
+    Node<T> add(Key key, T action) {
         if (this.key.equals(key)) {
             this.value = action;
             return this;
         }
-        ArrayTrie<T> t = new ArrayTrie<T>(this.key, action);
+        ArrayNode<T> t = new ArrayNode<T>(this.key, action);
         return t.add(key, action);
     }
 
@@ -37,7 +33,7 @@ public class KeyTrie<T> extends Trie<T> {
     }
 
     @Override
-    Trie<T> locate(Key key) {
+    Node<T> locate(Key key) {
         if (key.getLength() == 0 || this.key.includes(key)) {
             return this;
         }
