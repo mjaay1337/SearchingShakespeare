@@ -8,7 +8,7 @@ package SuffixTree;
 
 import java.io.IOException;
 import javafx.scene.layout.*;
-import java.awt.event.ActionEvent;
+
 import java.util.List;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextArea;
